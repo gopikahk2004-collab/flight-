@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h2>Flight Management Dashboard</h2>
+
+
+<div class="card">
+
+    <h3>
+        Total Flights
+    </h3>
+
+    <h1>
+        {{ flight_count }}
+    </h1>
+
+</div>
+
+
+<div class="card">
+
+    <h3>
+        Total Passengers
+    </h3>
+
+    <h1>
+        {{ passenger_count }}
+    </h1>
+
+</div>
+
+
+<div class="card">
+
+    <h3>
+        Total Bookings
+    </h3>
+
+    <h1>
+        {{ booking_count }}
+    </h1>
+
+</div>
+
+
+{% endblock %}

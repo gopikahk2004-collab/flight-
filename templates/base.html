@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Flight Management System</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            margin: 40px;
+            background-color: #f4f4f4;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            background-color: white;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        input, select {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        .card {
+            display: inline-block;
+            background-color: white;
+            padding: 25px;
+            margin: 10px;
+            min-width: 150px;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+    <a href="{% url 'home' %}">
+        Home
+    </a>
+
+
+    {% if user.is_authenticated %}
+
+        <a href="{% url 'dashboard' %}">
+            Dashboard
+        </a>
+
+        <a href="{% url 'flight_list' %}">
+            Flights
+        </a>
+
+        <a href="{% url 'passenger_list' %}">
+            Passengers
+        </a>
+
+        <a href="{% url 'booking_list' %}">
+            Bookings
+        </a>
+
+        <a href="{% url 'add_flight' %}">
+            Add Flight
+        </a>
+
+        <a href="{% url 'add_passenger' %}">
+            Add Passenger
+        </a>
+
+        <a href="{% url 'book_flight' %}">
+            Book Flight
+        </a>
+
+        <a href="{% url 'logout' %}">
+            Logout
+        </a>
+
+
+    {% else %}
+
+
+        <a href="{% url 'login' %}">
+            Login
+        </a>
+
+        <a href="{% url 'register' %}">
+            Register
+        </a>
+
+
+    {% endif %}
+
+
+</nav>
+
+
+{% block content %}
+
+{% endblock %}
+
+
+</body>
+
+</html>

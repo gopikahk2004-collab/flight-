@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h2>Available Flights</h2>
+
+
+<h3>Search Flights</h3>
+
+
+<!-- GET is used for searching -->
+<form method="GET">
+
+
+    <!-- Search source -->
+    <input
+        type="text"
+        name="source"
+        placeholder="Source"
+    >
+
+
+    <!-- Search destination -->
+    <input
+        type="text"
+        name="destination"
+        placeholder="Destination"
+    >
+
+
+    <!-- Search departure date -->
+    <input
+        type="date"
+        name="departure_date"
+    >
+
+
+    <button type="submit">
+        Search
+    </button>
+
+
+</form>
+
+
+<br>
+
+
+<table>
+
+
+    <tr>
+
+        <th>Flight Number</th>
+
+        <th>Airline</th>
+
+        <th>Source</th>
+
+        <th>Destination</th>
+
+        <th>Date</th>
+
+        <th>Time</th>
+
+        <th>Price</th>
+
+        <th>Seats</th>
+
+        <th>Status</th>
+
+        <th>Actions</th>
+
+    </tr>
+
+
+    <!-- Loop through flights -->
+    {% for flight in flights %}
+
+
+    <tr>
+
+        <td>
+            {{ flight.flight_number }}
+        </td>
+
+        <td>
+            {{ flight.airline }}
+        </td>
+
+        <td>
+            {{ flight.source }}
+        </td>
+
+        <td>
+            {{ flight.destination }}
+        </td>
+
+        <td>
+            {{ flight.departure_date }}
+        </td>
+
+        <td>
+            {{ flight.departure_time }}
+        </td>
+
+        <td>
+            {{ flight.price }}
+        </td>
+
+        <td>
+            {{ flight.seats }}
+        </td>
+
+        <td>
+            {{ flight.status }}
+        </td>
+
+        <td>
+
+            <!-- Edit button -->
+            <a href="{% url 'edit_flight' flight.id %}">
+                Edit
+            </a>
+
+            |
+
+            <!-- Delete button -->
+            <a href="{% url 'delete_flight' flight.id %}">
+                Delete
+            </a>
+
+        </td>
+
+    </tr>
+
+
+    <!-- Display if no flights -->
+    {% empty %}
+
+
+    <tr>
+
+        <td colspan="10">
+            No flights found.
+        </td>
+
+    </tr>
+
+
+    {% endfor %}
+
+
+</table>
+
+
+{% endblock %}

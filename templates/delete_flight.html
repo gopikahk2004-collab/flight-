@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h2>Delete Flight</h2>
+
+
+<p>
+
+    Are you sure you want to delete
+
+    <b>
+        {{ flight.flight_number }}
+    </b>
+
+    ?
+
+</p>
+
+
+<form method="POST">
+
+    {% csrf_token %}
+
+
+    <button type="submit">
+        Yes, Delete
+    </button>
+
+
+</form>
+
+
+<br>
+
+
+<a href="{% url 'flight_list' %}">
+    Cancel
+</a>
+
+
+{% endblock %}

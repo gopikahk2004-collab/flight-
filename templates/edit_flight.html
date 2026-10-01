@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h2>Edit Flight</h2>
+
+
+<form method="POST">
+
+    {% csrf_token %}
+
+
+    <!-- Display existing flight data -->
+    {{ form.as_p }}
+
+
+    <button type="submit">
+        Update Flight
+    </button>
+
+
+</form>
+
+
+{% endblock %}

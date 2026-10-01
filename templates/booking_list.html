@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h2>Booking List</h2>
+
+
+<table>
+
+
+    <tr>
+
+        <th>Passenger</th>
+
+        <th>Flight</th>
+
+        <th>Number of Seats</th>
+
+        <th>Booking Date</th>
+
+        <th>Status</th>
+
+        <th>Action</th>
+
+    </tr>
+
+
+    <!-- Loop through bookings -->
+    {% for booking in bookings %}
+
+
+    <tr>
+
+        <td>
+            {{ booking.passenger.name }}
+        </td>
+
+        <td>
+            {{ booking.flight.flight_number }}
+        </td>
+
+        <td>
+            {{ booking.number_of_seats }}
+        </td>
+
+        <td>
+            {{ booking.booking_date }}
+        </td>
+
+        <td>
+            {{ booking.status }}
+        </td>
+
+        <td>
+
+            {% if booking.status == 'Confirmed' %}
+
+                <a href="{% url 'cancel_booking' booking.id %}">
+                    Cancel
+                </a>
+
+            {% endif %}
+
+        </td>
+
+    </tr>
+
+
+    <!-- Display if there are no bookings -->
+    {% empty %}
+
+
+    <tr>
+
+        <td colspan="6">
+            No bookings found.
+        </td>
+
+    </tr>
+
+
+    {% endfor %}
+
+
+</table>
+
+
+{% endblock %}

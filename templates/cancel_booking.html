@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h2>Cancel Booking</h2>
+
+
+<p>
+
+    Are you sure you want to cancel the booking for
+
+    <b>
+        {{ booking.passenger.name }}
+    </b>
+
+    on flight
+
+    <b>
+        {{ booking.flight.flight_number }}
+    </b>
+
+    ?
+
+</p>
+
+
+<form method="POST">
+
+    {% csrf_token %}
+
+
+    <button type="submit">
+        Yes, Cancel Booking
+    </button>
+
+
+</form>
+
+
+<br>
+
+
+<a href="{% url 'booking_list' %}">
+    Go Back
+</a>
+
+
+{% endblock %}

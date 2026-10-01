@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h1>Flight Management System</h1>
+
+
+<p>
+    Manage flights, passengers and bookings easily.
+</p>
+
+
+{% if user.is_authenticated %}
+
+    <h3>
+        Welcome {{ user.username }}
+    </h3>
+
+    <a href="{% url 'dashboard' %}">
+        Go to Dashboard
+    </a>
+
+
+{% else %}
+
+
+    <p>
+        Please login or register to use the system.
+    </p>
+
+
+{% endif %}
+
+
+{% endblock %}

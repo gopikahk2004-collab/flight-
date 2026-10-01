@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h2>Passenger List</h2>
+
+
+<table>
+
+
+    <tr>
+
+        <th>Name</th>
+
+        <th>Email</th>
+
+        <th>Phone</th>
+
+        <th>Actions</th>
+
+    </tr>
+
+
+    <!-- Loop through passengers -->
+    {% for passenger in passengers %}
+
+
+    <tr>
+
+        <td>
+            {{ passenger.name }}
+        </td>
+
+        <td>
+            {{ passenger.email }}
+        </td>
+
+        <td>
+            {{ passenger.phone }}
+        </td>
+
+        <td>
+
+            <!-- Edit button -->
+            <a href="{% url 'edit_passenger' passenger.id %}">
+                Edit
+            </a>
+
+            |
+
+            <!-- Delete button -->
+            <a href="{% url 'delete_passenger' passenger.id %}">
+                Delete
+            </a>
+
+        </td>
+
+    </tr>
+
+
+    <!-- Display if there are no passengers -->
+    {% empty %}
+
+
+    <tr>
+
+        <td colspan="4">
+            No passengers found.
+        </td>
+
+    </tr>
+
+
+    {% endfor %}
+
+
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h2>Edit Passenger</h2>
+
+
+<form method="POST">
+
+    {% csrf_token %}
+
+
+    <!-- Display existing passenger data -->
+    {{ form.as_p }}
+
+
+    <button type="submit">
+        Update Passenger
+    </button>
+
+
+</form>
+
+
+{% endblock %}

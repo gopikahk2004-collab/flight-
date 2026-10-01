@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h2>Add Flight</h2>
+
+
+<form method="POST">
+
+    {% csrf_token %}
+
+
+    <!-- Django automatically displays form fields -->
+    {{ form.as_p }}
+
+
+    <button type="submit">
+        Add Flight
+    </button>
+
+
+</form>
+
+
+{% endblock %}
